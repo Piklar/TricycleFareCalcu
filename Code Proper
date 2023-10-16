@@ -1,0 +1,114 @@
+import java.util.Scanner;
+
+public class Main {
+    static void  manual() {
+        double minimalfare = 40;
+        double addevery3km = 10;
+        Scanner input2 = new Scanner(System.in);
+        System.out.println("Please enter the distance in Kilometer:");
+        double DistanceinKM = input2.nextInt();
+        
+        double fare;
+        
+        if (DistanceinKM <= 2) {
+            fare = minimalfare;
+        }
+        
+        else {
+            double Extradistance = (DistanceinKM - 2);
+            double Extrafare = Math.ceil(Extradistance / 3) * addevery3km;
+            fare = minimalfare + Extrafare;
+            
+            System.out.println("Your fare from UA to Intersection is " + fare + " pesos.");
+        }
+        
+        
+    }
+    
+    static void Intersection() {
+        System.out.println("Your fare from UA to Intersection is 50 pesos.");
+    }
+    
+        static void Saint_Jude() {
+        System.out.println("Your fare from UA to St. Jude is 60 pesos.");
+    }
+    
+        static void San_Agustin() {
+        System.out.println("Your fare from UA to San Agustin is 70 pesos.");
+    }
+    
+        static void San_Isidro() {
+        System.out.println("Your fare from UA to San Isidro is 90 peses.");
+    }
+    
+        static void Sindalan() {
+        System.out.println("Your fare from UA to Sindalan is 110 pesos.");
+    }
+    
+        static void Baluyut() {
+        System.out.println("Your fare from UA to Baluyut is 140 peses.");
+    }
+    
+        static boolean continueusing() {
+            Scanner yesorno = new Scanner(System.in);
+            System.out.println("Do you want to continue using the Manaloskie calculator? (yes/no)");
+            String response = yesorno.next().toLowerCase();
+            return response.equals("yes");
+    }
+    
+    static void TricCalcu() {
+        Scanner input1 = new Scanner(System.in);
+        System.out.println("Please input where do you want to go: ");
+        System.out.println("1 = Intersection, 2 = St. Jude, 3 = San Agustin");
+        System.out.println("4 = San Isidro, 5 = Sindalan, 6 = Baluyut");
+        System.out.println("7 = If you want to put the Kilometer");
+        int Destination = input1.nextInt();
+        
+        switch (Destination) {
+            case 1:
+                Intersection();
+                break;
+            
+            case 2:
+                Saint_Jude();
+                break;
+                
+            case 3:
+                San_Agustin();
+                break;
+            
+            case 4:
+                San_Isidro();
+                break;
+            
+            case 5:
+                Sindalan();
+                break;
+                
+            case 6:
+                Baluyut();
+                break;
+                
+            case 7:
+                manual();
+                break;
+                
+            default:
+                System.out.println("Please input between 1-7 only. Please repeat the code.");
+        }
+    }
+    
+    public static void main(String[] args) {
+        System.out.println("Welcome to Manaloskie Tricycle Fare Calculator!");
+        
+        boolean continueCalculator = true;
+	    
+	    while (continueCalculator) {
+            TricCalcu();
+
+            continueCalculator = continueusing();
+        }
+        
+        System.out.println("Thank you for using the Manaloskie calculator!");
+    }
+}
